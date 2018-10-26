@@ -1,0 +1,1 @@
+var customers=["John Doe","Jane Doe"];customers.map(function(o){console.debug(o)});
