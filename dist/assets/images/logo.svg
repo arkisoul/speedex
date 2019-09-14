@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 95">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: #0a0b6b;
+      }
+
+      .cls-1, .cls-4 {
+        font-size: 50px;
+      }
+
+      .cls-1 {
+        font-family: Futura-MediumItalic, Futura;
+        font-weight: 500;
+        font-style: italic;
+      }
+
+      .cls-2 {
+        fill: #fe0000;
+        font-size: 40px;
+      }
+
+      .cls-2, .cls-4 {
+        font-family: Cookie-Regular, Cookie;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Group_3" data-name="Group 3" transform="translate(-34 -21)">
+    <g id="Group_2" data-name="Group 2">
+      <text id="Speedex" class="cls-1" transform="translate(117 73)"><tspan x="0" y="0">Speedex</tspan></text>
+      <text id="Same_Day" data-name="Same Day" class="cls-2" transform="translate(184 103)"><tspan x="0" y="0">Same Day</tspan></text>
+    </g>
+    <g id="Group_1" data-name="Group 1">
+      <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-3" cx="36.5" cy="36.5" r="36.5" transform="translate(34 32)"/>
+      <text id="SP" class="cls-4" transform="translate(45 80)"><tspan x="0" y="0">SP</tspan></text>
+    </g>
+  </g>
+</svg>

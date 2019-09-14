@@ -1,8 +1,104 @@
-<!DOCTYPE html>
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        title Home Page
-    body
+doctype html
+html(lang='en' class='no-js')
+  head
+
+    //- Meta
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+
+    meta(name='msapplication-TileColor', content='#0E0E0E')
+    meta(name='theme-color', content='#0E0E0E')
+
+    //- SEO
+
+    //- Basic Seo
+    block basicSeo
+      meta(name='description' content='Speedex| Same Day Courier Service between Dublin & Cork')
+      meta(name='keywords', content='Speedex| Same Day Courier Service between Dublin & Cork')
+      meta(name='author' content='Speedex')
+
+    //- Twitter
+    meta(name='twitter:card', content='Speedex: Same Day Courier Service between Dublin & Cork')
+    meta(name='twitter:site', content='http://speedex.ie')
+    meta(name='twitter:image', content='assets/images/sp.png')
+    meta(name='twitter:description', content='')
+
+    //- Facebook
+    meta(property='og:url', content='http://speedex.ie')
+    meta(property='og:title', content='Speedex| Same Day Courier Service between Dublin & Cork')
+    meta(property='og:description', content='Same Day Courier Service between Dublin & Cork')
+    meta(property='og:image', content='assets/images/sp.png')
+    meta(property='og:type', content='website')
+
+
+    //- Favicons
+    link(rel='apple-touch-icon' sizes='57x57' href='assets/images/favicons/apple-icon-57x57.png')
+    link(rel='apple-touch-icon' sizes='60x60' href='assets/images/favicons/apple-icon-60x60.png')
+    link(rel='apple-touch-icon' sizes='72x72' href='assets/images/favicons/apple-icon-72x72.png')
+    link(rel='apple-touch-icon' sizes='76x76' href='assets/images/favicons/apple-icon-76x76.png')
+    link(rel='apple-touch-icon' sizes='114x114' href='assets/images/favicons/apple-icon-114x114.png')
+    link(rel='apple-touch-icon' sizes='120x120' href='assets/images/favicons/apple-icon-120x120.png')
+    link(rel='apple-touch-icon' sizes='144x144' href='assets/images/favicons/apple-icon-144x144.png')
+    link(rel='apple-touch-icon' sizes='152x152' href='assets/images/favicons/apple-icon-152x152.png')
+    link(rel='apple-touch-icon' sizes='180x180' href='assets/images/favicons/apple-icon-180x180.png')
+    link(rel='icon' type='image/png' sizes='192x192' href='assets/images/favicons/android-icon-192x192.png')
+    link(rel='icon' type='image/png' sizes='32x32' href='assets/images/favicons/favicon-32x32.png')
+    link(rel='icon' type='image/png' sizes='96x96' href='assets/images/favicons/favicon-96x96.png')
+    link(rel='icon' type='image/png' sizes='16x16' href='assets/images/favicons/favicon-16x16.png')
+    link(rel='manifest' href='assets/images/favicons/manifest.json')
+    meta(name='msapplication-TileColor' content='#ffffff')
+    meta(name='msapplication-TileImage' content='assets/images/favicons/ms-icon-144x144.png')
+    meta(name='theme-color' content='#ffffff')
+
+
+    //- Fonts
+    link(href="https://fonts.googleapis.com/css?family=Quicksand", rel='stylesheet')
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.1.0/css/all.css')
+
+    //- Title
+    block title
+      title Speedex | Same Day Courier Service between Dublin & Cork
+
+    //- Manifest browserconfig files
+    block manifestBrowserconfigFiles
+      link(rel='manifest', href='assets/images/favicons/manifest.json')
+      meta(name='msapplication-config' content='assets/images/favicons/browserconfig.xml')
+  body
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    // Navbar
+    header
+        .container
+            a.logo
+                img(src="assets/images/logo.svg", alt="Speedex Logo")
+            nav#site-nav.site-nav
+                ul
+                    li
+                        a(href='#')
+                            i.fas.fa-home.site-nav--icon
+                            | Home
+                    li
+                        a(href='#')
+                            i.fas.fa-info.site-nav--icon
+                            | About Us
+                    li
+                        a(href='#')
+                            i.fas.fa-pencil-alt.site-nav--icon
+                            | Services
+                    li
+                        a(href='#')
+                            i.fas.fa-dollar-sign.site-nav--icon
+                            | Visa Application
+                    li
+                        a(href='#')
+                            i.fas.fa-dollar-sign.site-nav--icon
+                            | Why Speedex
+                    li
+                        a(href='#')
+                            i.fas.fa-envelope.site-nav--icon
+                            | Contact
+                #menu-toggle.menu-toggle(onclick='toggleSiteMenu();')
+                    .hamburger

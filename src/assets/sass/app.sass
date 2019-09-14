@@ -1,0 +1,443 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,700")
+
+$colors: (spurple: rgb(15,15,103), swhite: #ffffff, sblack: #000000, soffwhite: #fafafa, soffshade: #f1f1f1, speach: rgb(235, 195, 185), sgray: rgb(30, 74, 83), )
+
+\:root
+  @each $name, $color in $colors
+    --#{$name}: #{$color}
+
+@mixin var($property, $color)
+  #{$property}: map-get($colors, $color)
+  #{$property}: var(--#{$color})
+
+*, *::before, *::after
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+
+img
+  max-width: 100%
+
+a
+  text-decoration: none
+
+  &:hover, &:focus
+    text-decoration: none
+
+html, body
+  margin: 0
+  padding: 0
+  font: 1rem "Quicksand", sans-serif
+  font-weight: 400
+  @include var('color', sblack)
+  @include var('background-color', swhite)
+
+.container
+  max-width: 1440px
+  width: 90%
+  margin: 0 auto
+
+.sheader
+  position: relative
+  margin: 0
+  padding: 1em 0
+  transition: all ease-in-out 300ms
+  position: fixed
+  top: 0
+  width: 100%
+  left: 0
+  right: 0
+  @include var(background-color, swhite)
+
+  @media (min-width: 768px)
+    padding: 1.5em 0
+
+  &--scrolled
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2)
+    z-index: 999
+    padding: 0.75em 0
+
+.slogo
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  img
+    height: 50px
+
+.snav
+  display: flex
+  justify-content: space-between
+  align-items: center
+  position: relative
+
+.site-nav
+  @include var('background-color', sgray)
+  clip-path: circle(0px at top right)
+  transition: clip-path ease-in-out 500ms
+  padding: 0
+  margin: 0
+  list-style: none
+  position: absolute
+  top: 100%
+  right: 0
+  z-index: 99
+  width: 100%
+
+  @media (min-width: 1024px)
+    position: relative
+    background-color: transparent
+    clip-path: initial
+    width: auto
+
+  li
+    display: block
+    border-bottom: 1px solid
+    @include var('border-bottom-color', speach)
+
+    &:last-child
+      border-bottom: none
+
+    @media (min-width: 1024px)
+      display: inline-block
+      border-bottom: none
+
+    &.active
+      a
+       @include var(color, sgray)
+       border-bottom: 1px solid var(--sgray)
+
+  a
+    display: flex
+    align-items: center
+    padding: 2em 4em 2em 2em
+    @include var ('color', speach)
+    text-decoration: none
+    text-transform: uppercase
+
+    &:hover, &:focus
+      @include var(background-color, speach)
+      @include var(color, sgray)
+
+    @media (min-width: 1024px)
+      display: block
+      padding: 0
+      margin-left: 1.5em
+      &:hover, &:focus
+        background-color: transparent
+
+.site-nav--open
+  clip-path: circle(150% at top right)
+
+.snav__icon
+  text-align: right
+  width: 1.1em
+  margin-right: 1em
+  color: rgba(255, 255, 255, 0.4)
+
+  @media (min-width: 1024px)
+    display: none
+
+.menu-toggle
+  background: transparent
+  padding: 1em
+  right: 0em
+  top: 0.25em
+  cursor: pointer
+
+  @media (min-width: 1024px)
+    display: none
+
+.hamburger
+  content: ""
+  display: block
+  @include var(background-color, sgray)
+  width: 1.75em
+  height: 4px
+  border-radius: 4px
+  transition: transform ease-in-out 350ms
+  &::before, &::after
+    content: ""
+    display: block
+    @include var(background-color, sgray)
+    width: 1.75em
+    height: 4px
+    border-radius: 4px
+    transition: transform ease-in-out 350ms
+  &::before
+    transform: translateY(-8px)
+  &::after
+    transform: translateY(4px)
+
+.menu-toggle.open .hamburger
+  transform: rotate(-45deg)
+  &::before
+    opacity: 0
+  &::after
+    transform: translateY(-4px) rotate(90deg)
+
+.ssection
+  padding: 3em 0
+  min-height: 100vh
+  @include var(background-color, swhite)
+
+  &__head
+    position: relative
+    text-align: left
+    z-index: 1
+
+    &::before
+      content: ''
+      position: absolute
+      display: block
+      left: 0
+      right: 0
+      top: 50%
+      margin-top: -1px
+      width: 100%
+      height: 1px
+      @include var(background-color, sgray)
+      z-index: -1
+
+  &__heading
+    font-size: 2rem
+    text-transform: capitalize
+    letter-spacing: 1px
+    display: inline-block
+    position: relative
+
+    @media (min-width: 768px)
+      font-size: 3rem
+
+    &::before
+      content: ''
+      position: absolute
+      display: inline-block
+      left: 0
+      right: -10px
+      height: 100%
+      @include var(background-color, swhite)
+      z-index: -1
+
+  &__subhead
+    display: grid
+    grid-gap: 1em
+    margin-bottom: 1em
+
+    @media (min-width: 768px)
+      grid-template-columns: repeat(2, 1fr)
+
+  &__subheading
+    font-size: 1rem
+    line-height: 1.3
+    text-align: center
+
+.shome
+  min-height: calc(100vh - 82px)
+
+  &__content
+    display: grid
+    grid-gap: 2em
+
+    @media (min-width: 768px)
+      grid-template-columns: 40% 1fr
+      align-items: center
+
+  &__body
+    padding: 1em
+
+  &__heading
+    font-size: 2rem
+    text-transform: capitalize
+    letter-spacing: 1px
+
+.sabout
+  background-color: var(--speach)
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.75), rgba(255,255,255,0.85))
+
+  .ssection__heading
+    &::before
+      background-color: var(--speach)
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0.75), rgba(255,255,255,0.85))
+
+  &__content
+    display: grid
+    grid-gap: 1.5rem
+    padding: 2em 0 0
+
+    &::after
+      content: ''
+      clear: both
+      display: block
+
+    @media (min-width: 768px)
+      display: block
+
+  &__media
+    @media (min-width: 768px)
+      float: left
+      width: 50%
+      margin: 0 1.5em 1.5em 0
+
+  &__text
+    font-size: 0.9rem
+    line-height: 1.6
+    color: var(--sgray)
+    margin-bottom: 1em
+
+.sservices
+
+  &__content
+    display: grid
+
+    @media (min-width: 768px)
+      grid-template-columns: repeat(2, 1fr)
+
+  &__box
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    padding: 2em 1em
+    min-height: 50vh
+    overflow: hidden
+    text-align: center
+    background-color: var(--speach)
+    color: var(--sgray)
+    background-image: radial-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.2))
+
+    &:hover, &:focus
+      // .sservices__detail
+      //   transition: all ease-in-out 400ms
+      //   transform: translateY(0)
+      //   position: static
+
+    &:nth-child(odd)
+      background-color: var(--sgray)
+      color: var(--swhite)
+
+    @media (min-width: 768px)
+      &:nth-child(2), &:nth-child(3), &:nth-child(6)
+        background-color: var(--speach)
+        color: var(--sgray)
+
+      &:nth-child(1), &:nth-child(4), &:nth-child(5)
+        background-color: var(--sgray)
+        color: var(--swhite)
+
+    &-head
+      transition: all ease-in-out 400ms
+
+  &__detail
+    // transform: translateY(100%)
+    // transition: all ease-in-out 400ms
+    // position: absolute
+    // bottom: 0
+    padding: 1em 0 0
+
+  &__title
+    font-size: 1.5rem
+    font-weight: 400
+    margin-bottom: 0.5em
+
+  &__subtitle
+    font-size: 0.95rem
+    font-weight: 400
+
+  &__text
+    font-size: 0.85rem
+    margin-bottom: 1em
+    text-align: left
+    line-height: 1.5
+
+  &__list
+    list-style: none
+    padding: 0
+    margin: 0
+
+    li
+      font-size: 0.85rem
+      line-height: 1.5
+      font-weight: 400
+      text-align: left
+
+.swhyus
+  background-color: var(--speach)
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.75), rgba(255,255,255,0.85))
+
+  .ssection__heading
+    &::before
+      background-color: var(--speach)
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0.75), rgba(255,255,255,0.85))
+
+.sfooter
+
+  &-top
+    background-color: var(--sgray)
+    color: var(--swhite)
+    padding: 3em 0
+
+  &__content
+    display: grid
+    grid-gap: 2em
+
+    @media (min-width: 768px)
+      grid-template-columns: 30% 1fr
+
+  &__media
+    display: grid
+    grid-gap: 2em
+
+  &__map
+    &-item
+      display: grid
+      grid-gap: 1em
+
+      @media (min-width: 768px)
+        grid-template-columns: 40% 1fr
+
+  &-bottom
+    background-color: darken(rgb(30, 74, 83), 2%)
+    color: rgba(255,255,255, 0.8)
+    padding: 1em 0
+
+    &__content
+      display: grid
+      grid-gap: 1em
+
+      @media (min-width: 768px)
+        grid-template-columns: 260px 1fr
+
+  &__nav
+    list-style: none
+    padding: 0
+    margin: 0
+    display: flex
+    font-size: small
+    justify-self: center
+
+    @media (min-width: 768px)
+      justify-self: end
+
+    li
+      position: relative
+      &:not(:last-child)
+        &::after
+          content: ''
+          display: inline-block
+          position: absolute
+          height: 100%
+          width: 1px
+          background-color: rgba(255,255,255, 0.8)
+
+      & > a
+        padding: 0 0.5em
+        display: inline-block
+        color: rgba(255,255,255, 0.8)
+
+.scopyright
+  font-size: small
+  text-align: center
+
+  @media (min-width: 768px)
+    text-align: left
